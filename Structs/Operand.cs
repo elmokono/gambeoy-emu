@@ -9,5 +9,6 @@ namespace gameboy_rom_dissasembler.Structs
         public string Name { get; set; }
         public bool Immediate { get; set; }
         public int Bytes { get; set; }
+        public byte[] Value { get; set; }
     }
 }
