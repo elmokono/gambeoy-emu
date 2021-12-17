@@ -2,7 +2,7 @@
 using System.Text;
 using System;
 
-namespace gameboy_rom_dissasembler.Structs
+namespace gameboy_rom_dissasembler.Cartridge
 {
     internal class CartridgeMetadata
     {

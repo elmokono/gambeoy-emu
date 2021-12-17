@@ -1,5 +1,5 @@
 ﻿using gameboy_rom_dissasembler.Parser;
-using gameboy_rom_dissasembler.Structs;
+using gameboy_rom_dissasembler.Cartridge;
 using System;
 
 namespace gameboy_rom_dissasembler
@@ -8,12 +8,13 @@ namespace gameboy_rom_dissasembler
     {
         static void Main(string[] args)
         {
-            var opCodes = new JSONParser().Parse(@"C:\WorkingFolderGITLab\gameboy-emu\dissasembler-csharp\gameboy-rom-dissasembler\Resources\Opcodes.json");
+            var opCodes = new JSONParser().Parse(@"C:\WorkingFolderGITLab\gambeoy-emu\Resources\Opcodes.json");
 
-            var metadata = CartridgeMetadata.Parse(
-                @"C:\WorkingFolderGITLab\gameboy-emu\dissasembler-csharp\gameboy-rom-dissasembler\Resources\snake.gb",
-                0x100
-            );
+            var romPath = @"C:\WorkingFolderGITLab\gambeoy-emu\Resources\snake.gb";
+
+            var metadata = CartridgeMetadata.Parse(romPath, 0x100);
+
+            OpCodes.OpCodesDissasembler.Dissasemble(romPath, 0x150, opCodes, metadata);
         }
     }
 }
