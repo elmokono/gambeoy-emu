@@ -14,7 +14,9 @@ namespace gameboy_rom_dissasembler
 
             var metadata = CartridgeMetadata.Parse(romPath, 0x100);
 
-            OpCodes.OpCodesDissasembler.Dissasemble(romPath, 0x150, opCodes, metadata);
+            var assemblerFile = romPath + ".asm";
+
+            new OpCodes.Z80OpCodesDissasembler().Dissasemble(romPath, 0x150, opCodes, metadata, assemblerFile);
         }
     }
 }
